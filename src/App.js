@@ -13,9 +13,9 @@ function App() {
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
-    const currentWeatherFetch = fetch(`${Weather_Api_Url}/weather?lat=${lat}&lon=${lon}&appid=${Weather_Api_Key}`);
+    const currentWeatherFetch = fetch(`${Weather_Api_Url}/weather?lat=${lat}&lon=${lon}&appid=${Weather_Api_Key}&units=imperial`);
 
-    const weatherForecastFetch = fetch(`${Weather_Api_Url}/forecast?lat=${lat}&lon=${lon}&appid=${Forecast_Api_Key}`);
+    const weatherForecastFetch = fetch(`${Weather_Api_Url}/forecast?lat=${lat}&lon=${lon}&appid=${Forecast_Api_Key}&units=imperial`);
 
     Promise.all([currentWeatherFetch, weatherForecastFetch])
       .then(async (response) => {
